@@ -33,6 +33,12 @@ public static class Z85Encoder
         33, 34, 35, 79, 0, 80, 0, 0,
     ];
 
+    /// <summary>
+    /// Encodes a byte array into a Z85 string. The input length must be a multiple of 4.
+    /// </summary>
+    /// <param name="data">The input byte array to encode</param>
+    /// <returns> The Z85 encoded string</returns>
+    /// <exception cref="ArgumentException"> Thrown when the input length is not a multiple of 4</exception>
     public static string GetString(byte[] data)
     {
         int quartet = data.Length / 4;
@@ -40,7 +46,7 @@ public static class Z85Encoder
         {
             throw new ArgumentException("Input length must be a multiple of 4", nameof(data));
         }
-        
+
         Span<char> result = stackalloc char[quartet * 5];
         uint value;
         for (int i = 0; i < quartet; i++)
@@ -70,6 +76,12 @@ public static class Z85Encoder
         return new string(result);
     }
 
+    /// <summary>
+    /// Decodes a Z85 string into a byte array. The input length must be a multiple of 5.
+    /// </summary>
+    /// <param name="data"> The input Z85 string to decode</param>
+    /// <returns> The decoded byte array</returns>
+    /// <exception cref="ArgumentException"> Thrown when the input length is not a multiple of 5</exception>
     public static byte[] GetBytes(string data)
     {
         if (data.Length % 5 != 0)
