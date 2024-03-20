@@ -1,7 +1,10 @@
 # Z85 Encoder/Decoder
 
 This C# library provides an implementation of the Z85 encoding and decoding scheme. Z85 is a binary-to-text encoding system that was designed to be efficient both in terms of space and width of the output, while also being human-friendly.
-
+## Installation
+```bash
+dotnet add package Z85Net
+```
 ## Usage
 
 ```csharp

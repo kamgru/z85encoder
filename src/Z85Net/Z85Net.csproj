@@ -14,4 +14,10 @@
         <PackageTags>base85 z85 encoding decoding</PackageTags>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include="..\..\README.md">
+        <Link>README.md</Link>
+      </Content>
+    </ItemGroup>
+
 </Project>
